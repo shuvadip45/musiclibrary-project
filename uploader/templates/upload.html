@@ -1,0 +1,18 @@
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+    <h1>picture</h1>
+    <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{form}}
+        <input type="submit" value="Upload" />
+    </form>
+    {% if flag %}
+    {% for song in songs %}
+        {{forloop.counter}}.<a href="{{ song.songfile.url }}">{{ song.songfile.name }}</a>
+        {{song.songname}}
+        {{song.artist}}
+        {{song.album}}
+        ({{song.upload_date}})<hr />
+    {% endfor %}
+    {% else %}
+    {{message}}
+    {% endif %}
+</div>

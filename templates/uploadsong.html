@@ -1,0 +1,20 @@
+<DOCTYPE <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Music Library</title>
+  </head>
+  <body>
+    <form class="" action="upload" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <h2>Song Name</h2><input type="text" name="SongName" value=""/>
+      <h2>Artist</h2><input type="text" name="Artist" value=""/>
+      <h2>Release Year</h2><input type="text" name="ReleaseYear" value=""/>
+      <h2>Genre</h2><input type="text" name="Genre" value=""/>
+      <h2>Album Name</h2><input type="text" name="Album" value=""/>
+      <input type="file" name="song" value=""/>
+      <input type="submit" name="Submit" value="Submit"/>
+    </form>
+  </body>
+</html>
