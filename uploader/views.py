@@ -15,14 +15,14 @@ def home(request):
             objs=Upload.objects.all()
             obj=objs[len(objs)-1]
             filename=obj.songfile.name
-            if filename[-4:]!=".mp3":
+            if filename[-4:]!=".mp3": #To check if the file is .mp3
                 flag=0
                 message = "This file is not .mp3"
                 id=obj.id
-                Upload.objects.filter(id=id).delete()
+                Upload.objects.filter(id=id).delete() #If not delete it
                 return render(request,'upload.html',{'message':message,'flag':flag})
             else:
-
+                #To write the information on the file
                 audiofile = eyed3.load(os.getcwd()+obj.songfile.url)
                 audiofile.tag.artist = obj.artist
                 audiofile.tag.album = obj.album
